@@ -112,11 +112,15 @@ document.addEventListener("DOMContentLoaded", function() {
 // Script para manejar datos (ejemplo)
 document.getElementById('confirmationForm').addEventListener('submit', function(e) {
       e.preventDefault();
-      const data = {
-        nombre: document.getElementById('nombre').value,
-        telefono: document.getElementById('telefono').value,
-        asistencia: document.querySelector('input[name="asistencia"]:checked').value
-      };
+      const nombre = document.getElementById('nombre').value;
+      const telefono = document.getElementById('telefono').value;
+      const asistencia = document.querySelector('input[name="asistencia"]:checked').value;
+
+      const formData = new FormData();
+        formData.append("nombre", nombre);
+        formData.append("telefono", telefono);
+        formData.append("asistencia", asistencia);
+
       fetch("https://script.google.com/macros/s/AKfycbw8xT6Efjdzs4N2WTP8bu1Fk6yaFItPbUkCojAMxRc289VRoPCN800-Dk4jurf3vGs4/exec", {
         method: "POST",
         body: formData
