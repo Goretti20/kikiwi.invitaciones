@@ -125,9 +125,12 @@ document.getElementById('confirmationForm').addEventListener('submit', function(
         method: "POST",
         body: formData
       })
-      .then(() => alert("Datos enviados"))
-      .catch(err => console.error(err));
-
+      .then(result => {
+        alert("Respuesta del servidor: " + result);
+      })
+      .catch(error => {
+        alert("Error en la petición: " + error);
+      });
       console.log("Datos capturados:", data);
 });
 
