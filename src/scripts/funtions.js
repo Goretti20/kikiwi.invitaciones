@@ -119,18 +119,11 @@ document.getElementById('confirmationForm').addEventListener('submit', function(
       };
       fetch("https://script.google.com/macros/s/AKfycbw8xT6Efjdzs4N2WTP8bu1Fk6yaFItPbUkCojAMxRc289VRoPCN800-Dk4jurf3vGs4/exec", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json"   // importante para que Apps Script entienda el JSON
-        },
-        body: JSON.stringify(data)
+        body: formData
       })
-      .then(response => response.text())
-      .then(result => {
-        alert("Respuesta del servidor: " + result); // aquí verás "OK" o "Error: ..."
-      })
-      .catch(error => {
-        alert("Error en la petición: " + error);
-      });
+      .then(() => alert("Datos enviados"))
+      .catch(err => console.error(err));
+
       console.log("Datos capturados:", data);
 });
 
