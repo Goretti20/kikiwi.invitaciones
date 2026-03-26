@@ -1,0 +1,364 @@
+/*<weight>: Use a value from 300 to 700
+<uniquifier>: Use a unique and descriptive class name
+.cormorant-garamond-<uniquifier> {
+  font-family: "Cormorant Garamond", serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+}
+
+<weight>: Use a value from 100 to 900
+<uniquifier>: Use a unique and descriptive class name
+.raleway-<uniquifier> {
+  font-family: "Raleway", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+}*/
+
+body{
+  background-color: #ede2cc;
+}
+
+/*----------------------CAROUSEL - INICIO----------------------*/
+.carousel-container {
+  margin: 20px,auto;  
+  padding: 30px;
+}
+#invitationCarousel .carousel-item img {
+  filter: brightness(60%);
+  border-radius: 20px;
+}
+@media (max-width: 768px) {
+  #invitationCarousel {
+    max-width: 95%;   /* ocupa casi todo el ancho en móvil */
+    margin: 20px auto;
+  }
+  #invitationCarousel .carousel-item img {
+    height: 250px;    /* altura más pequeña en móvil */
+  }
+}
+
+#globalCaption {
+  position: sticky;
+  top: 20px;              /* más arriba (ajusta según lo necesites) */
+  width: 100%;
+  padding: 5px;           /* espacio vertical para el texto */
+  text-align: center;
+  opacity: 0;              /* invisible al inicio */
+  transition: opacity 1.5s ease-in-out, color 0.8s ease-in-out; /* animación suave */
+  z-index: 10;   
+  color: #ede2cc;;  
+}
+#globalCaption.visible {
+  opacity: 1;              /* se vuelve visible */
+}
+#globalCaption.black {
+  color: #8b5e3c; /* color cuando ya no hay fondo oscuro */
+}
+#globalCaption h5 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 4rem;    /* tamaño grande para el título */
+  font-weight: bold;
+  font-style: italic;
+}
+#globalCaption h4 {
+  font-family: "Raleway", sans-serif;
+  font-size: 2rem;    /* tamaño más pequeño para el subtítulo */
+  margin-top: 10px;
+  font-style: normal;
+}
+
+/*----------------------SAVE THE DATE - INFO----------------------*/
+.saveDate {
+  background-color: #dcc9a7;
+  padding: 15px;
+  width: 100%;
+  margin-bottom: 30px;
+  border-radius: 20px;
+}
+.saveDate h1 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 5.5rem;
+  font-weight: bold;
+  font-style: italic;
+  color: #8b5e3c;
+}
+.saveDate p {
+  font-family: "Raleway", sans-serif;
+  font-size: 1.5rem;
+  color: #8b5e3c;
+  margin: 5px 0;
+}
+
+/*----------------------NAVBAR - INFO----------------------*/
+.nav-link {
+  color: #8b5e3c; /* café elegante */
+  font-weight: 500;
+  font-family: "cormorant-garamond", serif;
+  font-size: 2rem;
+}
+.nav-link:hover {
+  color: #c49b63; /* dorado al pasar el mouse */
+}
+.nav-link:focus,
+.nav-link:active,
+.nav-link.show {
+  color: #a67c52; /* color cuando está activo o seleccionado */
+}
+.card-body {
+  background-color: #dcc9a7;
+  padding-bottom: 15px; /* menos espacio debajo */
+  max-width: 800px;   /* límite máximo de ancho */
+  min-height: 400px;  /* altura mínima */
+  margin: 0 auto;     /* centra el bloque en la página */
+  margin-top: 25px;     /* espacio entre el botón y el card */
+  border-radius: 20px;
+}
+.card-body p{
+  font-family: "Cormorant Garamond", serif; /* tipografía elegante */
+  color: #8b5e3c;
+  font-size: 1.4rem;      /* más grande */
+  line-height: 1.8;       /* espacio entre líneas */
+}
+
+/*----------------------NUESTRA HISTORIA - NAVBAR----------------------*/
+#historiaCarousel {
+  max-width: 400px;   /* ancho máximo del carrusel */
+  margin: 0 auto;     /* centra el carrusel */
+}
+#historiaCarousel .carousel-item img {
+  filter: brightness(60%);
+  border-radius: 20px;
+  object-fit: cover;
+  display: block;
+  margin-top: 30px;     /* espacio entre el texto inicial y el carrusel */
+  margin-bottom: 1px;     /* espacio entre el carrusel y el texto final */
+}
+@media (max-width: 768px) {
+  #historiaCarousel .carousel-item img{
+    width: 150px;
+    height: 225px;
+  }
+}
+#historia p {
+  opacity: 0;                /* invisible al inicio */
+  transform: translateY(20px); /* desplazado hacia abajo */
+  transition: opacity 1s ease, transform 1s ease;
+}
+#historia.show p {
+  opacity: 1;                /* aparece */
+  transform: translateY(0);  /* vuelve a su lugar */
+}
+
+/*----------------------ITINERARIO - NAVBAR----------------------*/
+.timeline {
+  position: relative;
+  margin: 20px auto;
+  padding: 10px 0;
+  max-width: 500px;
+}
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 50%; /* línea al centro */
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #8b5e3c;
+  transform: translateX(-50%);
+}
+.timeline-item {
+  display: flex;
+  align-items: center;
+  margin: 30px 0;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+.timeline-item.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+.timeline-time {
+  flex: 1;
+  text-align: right;
+  padding-right: 20px;
+  font-family: "raleway", sans-serif;
+  font-weight: bold;
+  color: #8b5e3c;
+}
+.timeline-dot {
+  width: 16px;
+  height: 16px;
+  background: #8b5e3c;
+  border-radius: 50%;
+  position: relative;
+  z-index: 1;
+}
+.timeline-content {
+  flex: 1;
+  padding-left: 20px;
+}
+
+/*----------------------MESA DE REGALOS - NAVBAR----------------------*/
+.gift-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+.gift-option {
+  background: #ede2cc;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 20px;
+  width: 220px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+.gift-option.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+.gift-option h5 {
+  font-family: "raleway", sans-serif;
+  color: #8b5e3c;
+  margin-bottom: 10px;
+}
+.btn-gift{
+  background-color: #c49b63; /* dorado */
+  color: #fff;
+  border: none;
+}
+.btn-gift:hover {
+  background-color: #a67c52; /* tono más oscuro al pasar el mouse */
+}
+#mesaRegalos p {
+  opacity: 0;                /* invisible al inicio */
+  transform: translateY(20px); /* desplazado hacia abajo */
+  transition: opacity 1s ease, transform 1s ease;
+}
+#mesaRegalos.show p {
+  opacity: 1;                /* aparece */
+  transform: translateY(0);  /* vuelve a su lugar */
+}
+
+/*----------------------DRESS CODE - NAVBAR----------------------*/
+#dressCode h2 {
+  font-family: "Cormorant Garamond", serif; /* tipografía elegante */
+  font-style: bold;
+  color: #8b5e3c;
+  font-size: 2.5rem;      /* más grande */
+  margin-top: 20px;    /* espacio antes del título */
+}
+#dressCode p {
+  opacity: 0;                /* invisible al inicio */
+  transform: translateY(20px); /* desplazado hacia abajo */
+  transition: opacity 1s ease, transform 1s ease;
+}
+#dressCode.show p {
+  opacity: 1;                /* aparece */
+  transform: translateY(0);  /* vuelve a su lugar */
+}
+.color-palette {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 20px 0;
+}
+.color-dot {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: inline-block;
+  border: 2px solid #ccc;
+  transition: transform 0.3s ease;
+  opacity: 0;                /* invisible al inicio */
+  transform: scale(0.5); /* desplazado hacia abajo */
+}
+.color-dot.show {
+  opacity: 1;
+  transform: scale(1);
+  transition: all 0.6s ease;
+}
+.color-dot:hover {
+  transform: scale(1.2); /* efecto al pasar el mouse */
+}
+/* Colores personalizados */
+.color1 { background-color: #8b5e3c; }   /* café elegante */
+.color2 { background-color: #c49b63; }   /* dorado */
+.color3 { background-color: #c4a69b; }   /* rosa claro */
+.color4 { background-color: #bab8a2; }   /* verde claro */
+
+/*----------------------ASISTENCIA - FORM----------------------*/
+.attend-container {
+  background-color: #f5f0e6; /* beige claro */
+  padding: 40px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  border-radius: 20px;
+  width: 100%;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.attend-container h2 {
+  font-family: "Cormorant Garamond", serif;
+  color: #8b5e3c; /* café elegante */
+}
+.form-label {
+  font-weight: 600;
+  font-family: "Raleway", sans-serif;
+  color: #2f3e46; /* verde oscuro */
+}
+.form-control {
+  border: 1px solid #c49b63; /* dorado */
+  border-radius: 5px;
+}
+.custom-check {
+  accent-color: #c49b63; /* dorado */
+}
+.form-check-input:checked {
+  background-color: #c49b63;   /* dorado */
+  border-color: #c49b63;
+}
+.form-check-input {
+  border: 1px solid #8b5e3c;   /* café elegante */
+}
+.form-check-input:focus {
+  border-color: #c49b63;
+  box-shadow: 0 0 0 0.25rem rgba(196, 155, 99, 0.25); /* sombra dorada */
+}
+.form-check-label {
+  font-weight: 500;
+  color: #2f3e46; /* verde oscuro */
+}
+.btn-confirm {
+  background-color: #8b5e3c; /* café elegante */
+  font-family: "Raleway", sans-serif;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  transition: background-color 0.3s ease;
+}
+.btn-confirm:hover {
+  background-color: #c49b63; /* dorado al pasar el mouse */
+  color: #fff;
+}
+
+/*----------------------FOOTER----------------------*/
+.footer {
+  background-color: #dcc9a7;   /* verde oscuro elegante */
+  color: #8b5e3c;              /* beige claro para contraste */
+  padding: 20px 0;
+  font-family: 'Georgia', serif;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+.footer p:hover {
+  color: #c49b63;              /* dorado */
+  transition: color 0.3s ease;
+}
+
